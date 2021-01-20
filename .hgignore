@@ -1,0 +1,5 @@
+.idea/
+dist/
+node_modules/
+src/fonts/*
+src/images/*
