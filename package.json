@@ -26,6 +26,6 @@
     "gulp-webp": "^4.0.1",
     "gulp-webp-css": "^1.1.0",
     "gulp-webp-html": "^1.0.2",
-    "modern-css-reset": "^1.4.0"
+    "modern-normalize": "^1.0.0"
   }
 }

@@ -1,6 +1,6 @@
 let dist_folder = 'dist';
 let src_folder = 'src';
-let domain_name = 'playground1.loc';
+//let domain_name = 'html-builder.loc';
 let fs = require('fs');
 
 let path = {
@@ -39,9 +39,9 @@ let { src, dest } = require('gulp'),
 	//rename = require('gulp-rename'),
 	uglify = require('gulp-uglify-es').default,
 	imagemin = require('gulp-imagemin'),
-	webp = require('gulp-webp'),
-	webphtml = require('gulp-webp-html'),
-	webpcss = require('gulp-webp-css'),
+	//webp = require('gulp-webp'),
+	//webphtml = require('gulp-webp-html'),
+	//webpcss = require('gulp-webp-css'),
 	ttf2woff = require('gulp-ttf2woff'),
 	ttf2woff2 = require('gulp-ttf2woff2'),
 	fonter = require('gulp-fonter');
@@ -49,13 +49,13 @@ let { src, dest } = require('gulp'),
 
 function browserSync(params) {
 	browsersync.init({
-/*		server: {
+		server: {
 			baseDir: './' + dist_folder + '/'
 		},
-		port: 3000,*/
-		open: 'external',
+		port: 3000,
+		/*open: 'external',
 		host: domain_name,
-		proxy: 'http://' + domain_name + '/www/' + dist_folder,
+		proxy: 'http://' + domain_name + '/www/' + dist_folder,*/
 		notify: false
 	})
 }
@@ -63,7 +63,7 @@ function browserSync(params) {
 function html() {
 	return src( path.src.html )
 		.pipe( fileinclude() )
-		.pipe( webphtml() )
+		//.pipe( webphtml() )
 		.pipe( dest( path.build.html ) )
 		.pipe( browsersync.stream() )
 }
@@ -77,7 +77,7 @@ function js() {
 }
 
 function css() {
-	fs.copyFileSync( 'node_modules/modern-css-reset/dist/reset.css', src_folder + '/scss/reset.css' );
+	fs.copyFileSync( 'node_modules/modern-normalize/modern-normalize.css', src_folder + '/scss/modern-normalize.css' );
 	return src( path.src.css )
 		.pipe(
 			scss({
@@ -86,7 +86,7 @@ function css() {
 		)
 		.pipe( group_media() )
 		.pipe( autoprefixer() )
-		.pipe( webpcss() )
+		//.pipe( webpcss() )
 		.pipe( clean_css() )
 		.pipe( dest( path.build.css ) )
 		.pipe( browsersync.stream() );
@@ -95,11 +95,11 @@ function css() {
 
 function images() {
 	return src( path.src.images )
-		.pipe(
+		/*.pipe(
 			webp({
 				quality: 70
 			})
-		)
+		)*/
 		.pipe( dest( path.build.images ) )
 		.pipe( src( path.src.images ) )
 		.pipe(
