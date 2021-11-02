@@ -1,4 +1,9 @@
-$maxWidth: 1280;
-$maxWidthContainer: 1170;
-$baseFontSize: 15px;
-$baseFontColor: #000;
+$minWidth: 320px;
+$maxWidth: 1440;
+$maxWidthContainer: 1270;
+$md1: $maxWidthContainer + 12;
+$fontFamily: "Gilroy";
+$fontSize: 16;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;

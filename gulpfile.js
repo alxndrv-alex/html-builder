@@ -32,7 +32,7 @@ let { src, dest } = require('gulp'),
 	browsersync = require('browser-sync').create(),
 	fileinclude = require('gulp-file-include'),
 	del = require('del'),
-	scss = require('gulp-sass'),
+	scss = require('gulp-sass')(require('sass')),
 	autoprefixer = require('gulp-autoprefixer'),
 	group_media = require('gulp-group-css-media-queries'),
 	clean_css = require('gulp-clean-css'),
@@ -77,7 +77,6 @@ function js() {
 }
 
 function css() {
-	fs.copyFileSync( 'node_modules/modern-normalize/modern-normalize.css', src_folder + '/scss/modern-normalize.css' );
 	return src( path.src.css )
 		.pipe(
 			scss({

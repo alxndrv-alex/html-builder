@@ -1,8 +1,14 @@
-@import "modern-normalize";
 @import "variables";
 @import "mixins";
 @import "fonts";
+@import "null";
 
-.test {
-  @include adaptive-font( 25, 12 );
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: #{$baseFontSize};
+  color: #{$baseFontColor};
+  background-color: #{$baseBgColor};
+}
+img {
+  width: 100%;
 }
